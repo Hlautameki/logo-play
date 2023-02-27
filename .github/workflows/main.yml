@@ -1,0 +1,20 @@
+name: Build Quasar
+on: [push]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Quasar
+    steps:
+    - uses: actions/checkout@v2
+    - id: Build-Quasar
+      run: |
+            yarn install
+            yarn build
+            cd dist/spa
+            git config --global user.email "mateusz.mistecki@gmail.com"
+            git config --global user.name "mateuszmistecki"
+            git init
+            git add -A
+            git commit -m 'deploy'
+            git push -f https://Hlautameki:${{ secrets.GITHUB_TOKEN }}@github.com/Hlautameki/logo-play.git master:gh-pages
+      shell: bash
