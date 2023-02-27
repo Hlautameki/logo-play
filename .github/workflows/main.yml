@@ -9,7 +9,7 @@ jobs:
     - id: Build-Quasar
       run: |
             yarn install
-            quasar build
+            yarn build
             cd dist/spa
             git config --global user.email "mateusz.mistecki@gmail.com"
             git config --global user.name "mateuszmistecki"
