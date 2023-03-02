@@ -5,6 +5,7 @@
         style="width: 150px; height: 80px"
         v-for="item in syllables"
         v-bind:key="item"
+        @click="clicked"
       >
         <div>
           <span class="text-h3">{{ item }}</span>
@@ -16,7 +17,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import paSound from '../assets/pa.mp3'
+import { useSound } from '@vueuse/sound'
 
+const paSyllable = useSound(paSound, { volume: 1 })
 const syllables = ref([
   'PA',
   'PO',
@@ -31,4 +35,8 @@ const syllables = ref([
   'PU',
   'PY',
 ])
+
+function clicked() {
+  paSyllable.play()
+}
 </script>
