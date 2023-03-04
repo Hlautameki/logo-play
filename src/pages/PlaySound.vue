@@ -1,42 +1,34 @@
 <template>
   <q-page padding>
     <div class="q-gutter-md fit row wrap q-mx-auto q-my-auto">
-      <q-btn
+      <play-button
         style="width: 150px; height: 80px"
         v-for="item in syllables"
         v-bind:key="item"
-        @click="clicked"
+        :label="item"
       >
-        <div>
-          <span class="text-h3">{{ item }}</span>
-        </div>
-      </q-btn>
+      </play-button>
     </div>
   </q-page>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import paSound from '../assets/pa.mp3'
-import { useSound } from '@vueuse/sound'
+import PlayButton from 'components/PlayButton.vue'
 
-const paSyllable = useSound(paSound, { volume: 1 })
-const syllables = ref([
-  'PA',
-  'PO',
-  'PE',
-  'PI',
-  'PU',
-  'PY',
-  'PA',
-  'PO',
-  'PE',
-  'PI',
-  'PU',
-  'PY',
-])
-
-function clicked() {
-  paSyllable.play()
-}
+const syllables = ref(['pa', 'po'])
+// const syllables = ref([
+//   'PA',
+//   'PO',
+//   'PE',
+//   'PI',
+//   'PU',
+//   'PY',
+//   'PA',
+//   'PO',
+//   'PE',
+//   'PI',
+//   'PU',
+//   'PY',
+// ])
 </script>
