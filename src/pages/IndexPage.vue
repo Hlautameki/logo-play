@@ -2,8 +2,9 @@
   <q-page class="flex flex-center">
     <q-btn
       to="PlaySound"
-      label="PlaySound"
+      label="Listen"
       color="primary"
+      icon="volume_down"
     ></q-btn>
   </q-page>
 </template>
