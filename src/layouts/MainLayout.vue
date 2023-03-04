@@ -2,9 +2,12 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-
         <q-toolbar-title>
-          Logo Play
+          <q-btn
+            flat
+            label="Logo Play"
+            to="/"
+          />
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
@@ -18,18 +21,15 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
+  components: {},
+
+  setup() {
+    return {}
   },
-
-  setup () {
-
-    return {
-    }
-  }
 })
 </script>
