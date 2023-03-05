@@ -8,5 +8,5 @@
 import { ref } from 'vue'
 import ButtonsList from 'components/ButtonsList.vue'
 
-const syllables = ref(['pa', 'pe', 'pi', 'po', 'pu', 'py'])
+const syllables = ref(['pa', 'po', 'pu', 'pe', 'pi', 'py'])
 </script>
