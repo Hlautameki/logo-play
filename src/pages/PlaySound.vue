@@ -16,19 +16,5 @@
 import { ref } from 'vue'
 import PlayButton from 'components/PlayButton.vue'
 
-const syllables = ref(['pa', 'po'])
-// const syllables = ref([
-//   'PA',
-//   'PO',
-//   'PE',
-//   'PI',
-//   'PU',
-//   'PY',
-//   'PA',
-//   'PO',
-//   'PE',
-//   'PI',
-//   'PU',
-//   'PY',
-// ])
+const syllables = ref(['pa', 'pe', 'pi', 'po', 'pu', 'py'])
 </script>

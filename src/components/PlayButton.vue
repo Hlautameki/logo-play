@@ -18,7 +18,7 @@ const props = defineProps({
 let syllable
 
 try {
-  syllable = useSound(require(`../assets/${props.label}.mp3`))
+  syllable = useSound(require(`../assets/lori/${props.label}.mp3`))
 } catch (e) {
   console.log(e)
 }
