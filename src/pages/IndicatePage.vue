@@ -1,18 +1,37 @@
 <template>
-  <q-page padding>
-    <buttons-list :syllables="syllables" />
-    <div class="row justify-center fixed-bottom">
-      <q-btn
-        class="q-mb-xl"
-        style="width: 150px; height: 80px"
-        @click="pressClick"
-      >
-        <q-icon
-          name="question_mark"
-          size="xl"
-        />
-      </q-btn>
+  <q-page
+    padding
+    style="background: #f2c037"
+    class="row items-stretch"
+  >
+    <div
+      style="background: aquamarine"
+      class="col column"
+    >
+      <!--      <div-->
+      <!--        style="background: #1d1d1d"-->
+      <!--        class="col-6"-->
+      <!--      >-->
+      <!--        test-->
+      <!--      </div>-->
+      <buttons-list
+        style="background: #9c27b0"
+        class="col-6 col-md-2 col-sm-4"
+        :syllables="syllables"
+      />
     </div>
+    <!--    <div class="row justify-center fixed-bottom">-->
+    <!--      <q-btn-->
+    <!--        class="q-mb-xl"-->
+    <!--        style="width: 150px; height: 80px"-->
+    <!--        @click="pressClick"-->
+    <!--      >-->
+    <!--        <q-icon-->
+    <!--          name="question_mark"-->
+    <!--          size="xl"-->
+    <!--        />-->
+    <!--      </q-btn>-->
+    <!--    </div>-->
   </q-page>
 </template>
 
