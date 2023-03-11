@@ -35,19 +35,18 @@ let puSound
 let pySound
 
 try {
-  pressSound = useSound(require(`../assets/lori/press.mp3`), {
-    onend: () => {
-      playSyllable()
-      console.info('Sound ended!')
-    },
-  })
-
-  paSound = useSound(require(`../assets/lori/pa.mp3`))
-  peSound = useSound(require(`../assets/lori/pe.mp3`))
-  piSound = useSound(require(`../assets/lori/pi.mp3`))
-  poSound = useSound(require(`../assets/lori/po.mp3`))
-  puSound = useSound(require(`../assets/lori/pu.mp3`))
-  pySound = useSound(require(`../assets/lori/py.mp3`))
+  // pressSound = useSound(require(`../assets/lori/press.mp3`), {
+  //   onend: () => {
+  //     playSyllable()
+  //     console.info('Sound ended!')
+  //   },
+  // })
+  // paSound = useSound(require(`../assets/lori/pa.mp3`))
+  // peSound = useSound(require(`../assets/lori/pe.mp3`))
+  // piSound = useSound(require(`../assets/lori/pi.mp3`))
+  // poSound = useSound(require(`../assets/lori/po.mp3`))
+  // puSound = useSound(require(`../assets/lori/pu.mp3`))
+  // pySound = useSound(require(`../assets/lori/py.mp3`))
 } catch (e) {
   console.log(e)
 }

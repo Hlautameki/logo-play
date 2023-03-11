@@ -3,8 +3,8 @@
     <play-button
       style="width: 150px; height: 80px"
       v-for="item in syllables"
-      v-bind:key="item"
-      :label="item"
+      v-bind:key="item.syllable"
+      :item="item"
     >
     </play-button>
   </div>
@@ -13,6 +13,6 @@
 <script setup>
 import PlayButton from 'components/PlayButton.vue'
 const props = defineProps({
-  syllables: [],
+  syllables: Array,
 })
 </script>

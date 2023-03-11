@@ -1,28 +1,20 @@
 <template>
   <q-page class="flex flex-center column q-gutter-md">
     <q-btn
-      to="syllableSelection"
-      label="Słuchaj"
+      to="PlaySound/p"
+      label="PA"
       color="primary"
-      icon="volume_down"
       size="15px"
       style="width: 140px"
     ></q-btn>
     <q-btn
-      to="Indicate"
-      label="Wskaż"
+      to="PlaySound/m"
+      label="MA"
       color="primary"
-      icon="touch_app"
       size="15px"
       style="width: 140px"
     ></q-btn>
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'IndexPage',
-})
-</script>
+<script setup></script>
