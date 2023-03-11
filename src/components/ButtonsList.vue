@@ -16,16 +16,15 @@
       :key="`none-${n}`"
     >
       <!--      <div style="background: #26a69a">&nbsp;</div>-->
-      <div
-        style="background: #26a69a"
-        class="row items-stretch col-12"
-      >
-        <q-btn
-          class="col-12"
-          label="PA"
-          style="min-height: inherit"
-        />
-      </div>
+      <!--      <div-->
+      <!--        style="background: #26a69a"-->
+      <!--        class="row items-stretch col-12"-->
+      <!--      >-->
+      <q-btn
+        class="col-12"
+        label="PA"
+      />
+      <!--      </div>-->
     </div>
   </div>
 </template>
