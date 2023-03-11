@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center column q-gutter-md">
     <q-btn
-      to="syllableSelection"
+      to="listen"
       label="Słuchaj"
       color="primary"
       icon="volume_down"

@@ -5,13 +5,16 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       {
-        path: 'playsound/:consonant',
+        path: 'listen/:consonant',
         component: () => import('pages/PlaySound.vue'),
       },
-      { path: 'indicate', component: () => import('pages/IndicatePage.vue') },
       {
-        path: 'syllableSelection',
-        component: () => import('pages/SyllableSelectionPage.vue'),
+        path: 'indicate/:consonant',
+        component: () => import('pages/IndicatePage.vue'),
+      },
+      {
+        path: ':mode',
+        component: () => import('pages/SyllableSelectorPage.vue'),
       },
     ],
   },

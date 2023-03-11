@@ -5,12 +5,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import ButtonsList from 'components/ButtonsList.vue'
 
 const route = useRoute()
-
 const consonant = route.params.consonant
 console.log(consonant)
 const vowels = ['a', 'o', 'u', 'e', 'i', 'y']
