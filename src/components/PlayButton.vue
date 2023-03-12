@@ -7,31 +7,15 @@
 </template>
 
 <script setup>
-import { useSound } from '@vueuse/sound'
-import { useQuasar } from 'quasar'
-import { toRefs } from 'vue'
+import { useSoundPlayer } from '../reusable/soundPlayer'
 
-const $q = useQuasar()
+const { playSound } = useSoundPlayer(props.item.path)
+
 const props = defineProps({
   item: Object,
 })
 
-let syllable
-
-try {
-  syllable = useSound(require(`../${props.item.path}.mp3`))
-} catch (e) {
-  console.log(e)
-}
-
 function clicked() {
-  if (syllable) {
-    syllable.play()
-  } else {
-    $q.notify({
-      message: `There is no sound file for \"${props.item.syllable}\"`,
-      color: 'negative',
-    })
-  }
+  playSound()
 }
 </script>

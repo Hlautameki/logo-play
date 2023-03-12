@@ -18,58 +18,47 @@
 
 <script setup>
 import ButtonsList from 'components/ButtonsList.vue'
-import { useSound } from '@vueuse/sound'
-import { useQuasar } from 'quasar'
 import { useRoute } from 'vue-router'
 import { useSyllablesWithPathBuilder } from 'src/reusable/syllablesWithPathBuilder'
+import { useSoundPlayer } from '../reusable/soundPlayer'
 
 const { getSyllablesWithPath } = useSyllablesWithPathBuilder()
-
-const $q = useQuasar()
 
 const route = useRoute()
 const consonant = route.params.consonant
 const syllables = getSyllablesWithPath(consonant)
 
-let pressSound
-let paSound
-let peSound
-let piSound
-let poSound
-let puSound
-let pySound
+const { playSound: pressSound } = useSoundPlayer(
+  `assets/lori/press`,
+  playSyllable
+)
+const { playSound: paSound } = useSoundPlayer(
+  `assets/lori/${consonant}/${consonant}a`
+)
+const { playSound: peSound } = useSoundPlayer(
+  `assets/lori/${consonant}/${consonant}e`
+)
+const { playSound: piSound } = useSoundPlayer(
+  `assets/lori/${consonant}/${consonant}i`
+)
+const { playSound: poSound } = useSoundPlayer(
+  `assets/lori/${consonant}/${consonant}o`
+)
+const { playSound: puSound } = useSoundPlayer(
+  `assets/lori/${consonant}/${consonant}u`
+)
+const { playSound: pySound } = useSoundPlayer(
+  `assets/lori/${consonant}/${consonant}y`
+)
 
-try {
-  pressSound = useSound(require(`../assets/lori/press.mp3`), {
-    onend: () => {
-      playSyllable()
-      console.info('Sound ended!')
-    },
-  })
-  paSound = useSound(require(`../assets/lori/${consonant}/${consonant}a.mp3`))
-  peSound = useSound(require(`../assets/lori/${consonant}/${consonant}e.mp3`))
-  piSound = useSound(require(`../assets/lori/${consonant}/${consonant}i.mp3`))
-  poSound = useSound(require(`../assets/lori/${consonant}/${consonant}o.mp3`))
-  puSound = useSound(require(`../assets/lori/${consonant}/${consonant}u.mp3`))
-  pySound = useSound(require(`../assets/lori/${consonant}/${consonant}y.mp3`))
-} catch (e) {
-  console.log(e)
-}
 const sounds = [paSound, peSound, piSound, poSound, puSound, pySound]
 
 function pressClick() {
-  if (pressSound) {
-    pressSound.play()
-  } else {
-    $q.notify({
-      message: `There is no sound file for \"press.mp3"`,
-      color: 'negative',
-    })
-  }
+  pressSound()
 }
 
 function playSyllable() {
   let item = sounds[Math.floor(Math.random() * sounds.length)]
-  item.play()
+  item()
 }
 </script>
