@@ -21,10 +21,25 @@ import { ref } from 'vue'
 import ButtonsList from 'components/ButtonsList.vue'
 import { useSound } from '@vueuse/sound'
 import { useQuasar } from 'quasar'
+import { useRoute } from 'vue-router'
 
 const $q = useQuasar()
 
-const syllables = ref(['pa', 'pe', 'pi', 'po', 'pu', 'py'])
+const route = useRoute()
+const consonant = route.params.consonant
+console.log(consonant)
+const vowels = ['a', 'o', 'u', 'e', 'i', 'y']
+const syllables = []
+vowels.forEach((vowel) => {
+  const syllable = `${consonant}${vowel}`
+  const path = `assets/lori/${consonant}/${syllable}`
+  syllables.push({
+    syllable: syllable,
+    path: path,
+  })
+})
+
+// const syllables = ref(['pa', 'pe', 'pi', 'po', 'pu', 'py'])
 
 let pressSound
 let paSound
@@ -35,18 +50,18 @@ let puSound
 let pySound
 
 try {
-  // pressSound = useSound(require(`../assets/lori/press.mp3`), {
-  //   onend: () => {
-  //     playSyllable()
-  //     console.info('Sound ended!')
-  //   },
-  // })
-  // paSound = useSound(require(`../assets/lori/pa.mp3`))
-  // peSound = useSound(require(`../assets/lori/pe.mp3`))
-  // piSound = useSound(require(`../assets/lori/pi.mp3`))
-  // poSound = useSound(require(`../assets/lori/po.mp3`))
-  // puSound = useSound(require(`../assets/lori/pu.mp3`))
-  // pySound = useSound(require(`../assets/lori/py.mp3`))
+  pressSound = useSound(require(`../assets/lori/press.mp3`), {
+    onend: () => {
+      playSyllable()
+      console.info('Sound ended!')
+    },
+  })
+  paSound = useSound(require(`../assets/lori/${consonant}/${consonant}a.mp3`))
+  peSound = useSound(require(`../assets/lori/${consonant}/${consonant}e.mp3`))
+  piSound = useSound(require(`../assets/lori/${consonant}/${consonant}i.mp3`))
+  poSound = useSound(require(`../assets/lori/${consonant}/${consonant}o.mp3`))
+  puSound = useSound(require(`../assets/lori/${consonant}/${consonant}u.mp3`))
+  pySound = useSound(require(`../assets/lori/${consonant}/${consonant}y.mp3`))
 } catch (e) {
   console.log(e)
 }
