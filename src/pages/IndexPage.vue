@@ -6,7 +6,7 @@
       color="primary"
       icon="volume_down"
       size="15px"
-      style="width: 140px"
+      style="width: 160px"
     ></q-btn>
     <q-btn
       to="Indicate"
@@ -14,7 +14,15 @@
       color="primary"
       icon="touch_app"
       size="15px"
-      style="width: 140px"
+      style="width: 160px"
+    ></q-btn>
+    <q-btn
+      to="Sequences"
+      label="Sekwencje"
+      color="primary"
+      icon="swipe_right_alt"
+      size="15px"
+      style="width: 160px"
     ></q-btn>
   </q-page>
 </template>

@@ -13,6 +13,10 @@ const routes = [
         component: () => import('pages/IndicatePage.vue'),
       },
       {
+        path: 'sequences/:consonant',
+        component: () => import('pages/SequencesPage.vue'),
+      },
+      {
         path: ':mode',
         component: () => import('pages/SyllableSelectorPage.vue'),
       },
