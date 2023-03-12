@@ -17,29 +17,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import ButtonsList from 'components/ButtonsList.vue'
 import { useSound } from '@vueuse/sound'
 import { useQuasar } from 'quasar'
 import { useRoute } from 'vue-router'
+import { useSyllablesWithPathBuilder } from 'src/reusable/syllablesWithPathBuilder'
+
+const { getSyllablesWithPath } = useSyllablesWithPathBuilder()
 
 const $q = useQuasar()
 
 const route = useRoute()
 const consonant = route.params.consonant
-console.log(consonant)
-const vowels = ['a', 'o', 'u', 'e', 'i', 'y']
-const syllables = []
-vowels.forEach((vowel) => {
-  const syllable = `${consonant}${vowel}`
-  const path = `assets/lori/${consonant}/${syllable}`
-  syllables.push({
-    syllable: syllable,
-    path: path,
-  })
-})
-
-// const syllables = ref(['pa', 'pe', 'pi', 'po', 'pu', 'py'])
+const syllables = getSyllablesWithPath(consonant)
 
 let pressSound
 let paSound
