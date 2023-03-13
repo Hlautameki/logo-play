@@ -1,6 +1,14 @@
 <template>
-  <q-page padding>
-    <buttons-list :syllables="syllables" />
+  <q-page
+    padding
+    class="row items-stretch"
+  >
+    <div class="col column">
+      <buttons-list
+        class="col-6 col-md-2 col-sm-4"
+        :syllables="syllables"
+      />
+    </div>
   </q-page>
 </template>
 
