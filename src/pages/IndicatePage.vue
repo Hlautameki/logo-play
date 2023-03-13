@@ -1,17 +1,24 @@
 <template>
-  <q-page padding>
-    <buttons-list :syllables="syllables" />
-    <div class="row justify-center fixed-bottom">
-      <q-btn
-        class="q-mb-xl"
-        style="width: 150px; height: 80px"
-        @click="pressClick"
-      >
-        <q-icon
-          name="question_mark"
-          size="xl"
-        />
-      </q-btn>
+  <q-page
+    padding
+    class="row items-stretch"
+  >
+    <div class="col column justify-between">
+      <buttons-list
+        class="col-6 col-md-2 col-sm-4"
+        :syllables="syllables"
+      />
+      <div class="col-2 row q-gutter-md justify-center">
+        <q-btn
+          class="col-6 col-md-2 col-sm-4"
+          @click="pressClick"
+        >
+          <q-icon
+            name="question_mark"
+            size="xl"
+          />
+        </q-btn>
+      </div>
     </div>
   </q-page>
 </template>
