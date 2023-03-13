@@ -1,12 +1,15 @@
 <template>
-  <div class="q-gutter-md fit row wrap q-mx-auto q-my-auto">
-    <play-button
-      style="width: 150px; height: 80px"
+  <div class="row q-col-gutter-md">
+    <div
+      class="col-6 col-md-2 col-sm-4 row items-stretch"
       v-for="item in syllables"
       v-bind:key="item.syllable"
-      :item="item"
     >
-    </play-button>
+      <play-button
+        class="col-12"
+        :item="item"
+      />
+    </div>
   </div>
 </template>
 
