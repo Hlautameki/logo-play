@@ -3,7 +3,11 @@
     padding
     class="row items-stretch"
   >
-    <div class="col column">
+    <div class="col column justify-between">
+      <buttons-list
+        class="col-6 col-md-2 col-sm-4"
+        :syllables="syllables"
+      />
       <buttons-list
         class="col-6 col-md-2 col-sm-4"
         :syllables="syllables"
