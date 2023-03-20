@@ -4,14 +4,18 @@
     class="row items-stretch"
   >
     <div class="col column justify-between">
-      <buttons-list
-        class="col-6 col-md-2 col-sm-4"
-        :syllables="syllables"
-      />
-      <buttons-list
-        class="col-6 col-md-2 col-sm-4"
-        :syllables="syllables"
-      />
+      <dustbin class="col-6 col-md-2 col-sm-4"> </dustbin>
+      <div class="col-6 col-md-2 col-sm-4 row justify-center">
+        <box class="col-2"></box>
+      </div>
+      <!--      <buttons-list-->
+      <!--        class="col-6 col-md-2 col-sm-4"-->
+      <!--        :syllables="syllables"-->
+      <!--      />-->
+      <!--      <buttons-list-->
+      <!--        class="col-6 col-md-2 col-sm-4"-->
+      <!--        :syllables="syllables"-->
+      <!--      />-->
     </div>
   </q-page>
 </template>
@@ -20,6 +24,8 @@
 import { useRoute } from 'vue-router'
 import { useSyllablesWithPathBuilder } from 'src/reusable/syllablesWithPathBuilder'
 import ButtonsList from 'components/ButtonsList.vue'
+import Dustbin from 'components/Dustbin.vue'
+import Box from 'components/Box.vue'
 
 const route = useRoute()
 const consonant = route.params.consonant
