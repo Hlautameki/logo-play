@@ -1,12 +1,21 @@
 <template>
-  <div>My component</div>
+  <q-btn @click="clicked">
+    <div>
+      <span class="text-h3">{{ item.syllable }}</span>
+    </div>
+  </q-btn>
 </template>
 
-<script>
-export default {
-  // name: 'ComponentName',
-  setup () {
-    return {}
-  }
+<script setup>
+import { useSoundPlayer } from '../reusable/soundPlayer'
+
+const { playSound } = useSoundPlayer(props.item.path)
+
+const props = defineProps({
+  item: Object,
+})
+
+function clicked() {
+  playSound()
 }
 </script>
