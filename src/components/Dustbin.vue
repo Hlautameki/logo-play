@@ -10,7 +10,6 @@
 <script setup>
 import { useDrop } from 'vue3-dnd'
 import { computed, unref } from 'vue'
-import { toRefs } from 'vue'
 
 const style = {
   height: '12rem',
