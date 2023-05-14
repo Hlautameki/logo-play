@@ -5,16 +5,17 @@
       v-for="item in syllables"
       v-bind:key="item.syllable"
     >
-      <play-button
+      <slot
+        name="button-slot"
         class="col-12"
         :item="item"
-      />
+      >
+      </slot>
     </div>
   </div>
 </template>
 
 <script setup>
-import PlayButton from 'components/PlayButton.vue'
 const props = defineProps({
   syllables: Array,
 })
