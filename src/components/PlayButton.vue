@@ -1,5 +1,8 @@
 <template>
-  <q-btn @click="clicked">
+  <q-btn
+    @click="clicked"
+    :class="buttonClass"
+  >
     <div>
       <span class="text-h3">{{ item?.syllable }}</span>
     </div>
@@ -13,6 +16,10 @@ const { playSound } = useSoundPlayer(props?.item?.path)
 
 const props = defineProps({
   item: Object,
+  buttonClass: {
+    type: String,
+    default: '',
+  },
 })
 
 function clicked() {

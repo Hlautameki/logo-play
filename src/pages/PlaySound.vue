@@ -8,10 +8,10 @@
         class="col-6 col-md-2 col-sm-4"
         :syllables="syllables"
       >
-        <template v-slot:button-slot="{ item }">
+        <template v-slot:button-slot="{ item, customClass }">
           <play-button
             :item="item"
-            class="col-12"
+            :button-class="customClass"
           />
         </template>
       </buttons-list>

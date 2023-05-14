@@ -9,6 +9,7 @@
         name="button-slot"
         class="col-12"
         :item="item"
+        :customClass="'col-12'"
       >
       </slot>
     </div>
