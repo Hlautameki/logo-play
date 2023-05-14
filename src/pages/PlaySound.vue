@@ -9,7 +9,10 @@
         :syllables="syllables"
       >
         <template v-slot:button-slot="{ item }">
-          <play-button :item="item" />
+          <play-button
+            :item="item"
+            class="col-12"
+          />
         </template>
       </buttons-list>
     </div>
