@@ -15,6 +15,7 @@
       <source-buttons-list
         class="col-6 col-md-2 col-sm-4"
         :syllables="syllables"
+        @dropOnSourceEvent="handleDropOnSourceEvent"
       />
     </div>
   </q-page>
@@ -33,4 +34,10 @@ const route = useRoute()
 const consonant = route.params.consonant
 const { getSyllablesWithPath } = useSyllablesWithPathBuilder()
 const syllables = getSyllablesWithPath(consonant)
+
+const handleDropOnSourceEvent = () => {
+  console.log('Custom event received in ParentA')
+}
+
+// defineEmits(['customEvent'])
 </script>

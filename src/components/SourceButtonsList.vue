@@ -8,6 +8,7 @@
       <source-button
         class="col-12"
         :item="item"
+        @childDropOnSourceEvent="handleCustomEvent"
       />
     </div>
   </div>
@@ -15,7 +16,12 @@
 
 <script setup>
 import SourceButton from 'components/SourceButton.vue'
+import { defineEmits } from 'vue'
 const props = defineProps({
   syllables: Array,
 })
+
+const handleCustomEvent = () => emit('dropOnSourceEvent')
+
+const emit = defineEmits(['dropOnSourceEvent'])
 </script>

@@ -18,7 +18,7 @@
 <script setup>
 import { useSoundPlayer } from '../reusable/soundPlayer'
 import { useDrag } from 'vue3-dnd'
-import { computed, unref } from 'vue'
+import { computed, defineEmits, unref } from 'vue'
 
 const { playSound } = useSoundPlayer(props.item.path)
 
@@ -42,7 +42,10 @@ const [collect, drag] = useDrag(() => ({
   end: (item, monitor) => {
     const dropResult = monitor.getDropResult()
     if (item && dropResult) {
-      alert(`You dropped ${item.name} into ${dropResult.name}!`)
+      emit('childDropOnSourceEvent')
+      alert(
+        `You dropped ${item.name} into ${dropResult.name} and ${dropResult.testProp}!`
+      )
     }
   },
   collect: (monitor) => ({
@@ -54,6 +57,8 @@ const [collect, drag] = useDrag(() => ({
 const opacity = computed(() => {
   return unref(collect.value.isDragging) ? 0.4 : 1
 })
+
+const emit = defineEmits(['childDropOnSourceEvent'])
 </script>
 
 <style scoped>

@@ -33,7 +33,7 @@ const style = {}
 
 const [collect, drop] = useDrop(() => ({
   accept: 'syllable',
-  drop: () => ({ name: 'Dustbin' }),
+  drop: () => ({ name: 'Dustbin2', testProp: props.item.syllable }),
   collect: (monitor) => ({
     isOver: monitor.isOver(),
     canDrop: monitor.canDrop(),
