@@ -2,8 +2,8 @@
   <div class="row q-col-gutter-md">
     <div
       class="col-6 col-md-2 col-sm-4 row items-stretch"
-      v-for="item in syllables"
-      v-bind:key="item.syllable"
+      v-for="(item, index) in modelValue"
+      v-bind:key="index"
     >
       <destination-button
         class="col-12"
@@ -15,7 +15,9 @@
 
 <script setup>
 import DestinationButton from 'components/DestinationButton.vue'
-const props = defineProps({
-  syllables: Array,
+import { onMounted } from 'vue'
+const { modelValue } = defineProps(['modelValue'])
+onMounted(() => {
+  console.log('modelValue in child component:', modelValue)
 })
 </script>
