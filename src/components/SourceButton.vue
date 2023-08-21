@@ -7,6 +7,7 @@
     <q-btn
       @click="clicked"
       class="full-width full-height"
+      :class="matched ? 'bg-secondary' : ''"
     >
       <div>
         <span class="text-h3">{{ item.syllable }}</span>
@@ -37,22 +38,27 @@ const style = {
 const [collect, drag] = useDrag(() => ({
   type: 'syllable',
   item: () => ({
-    name: 'syllable-item',
+    name: props.item.syllable,
   }),
-  end: (item, monitor) => {
+  end: (draggedItem, monitor) => {
     const dropResult = monitor.getDropResult()
-    if (item && dropResult) {
-      emit('childDropOnSourceEvent')
-      alert(
-        `You dropped ${item.name} into ${dropResult.name} and ${dropResult.testProp}!`
-      )
+    if (draggedItem && dropResult) {
+      if (dropResult.testProp === draggedItem.name) {
+        matched = true
+        emit('childDropOnSourceEvent', dropResult.testProp)
+      }
     }
   },
   collect: (monitor) => ({
     isDragging: monitor.isDragging(),
     handlerId: monitor.getHandlerId(),
   }),
+  canDrag: (monitor) => {
+    return !matched
+  },
 }))
+
+let matched = false
 
 const opacity = computed(() => {
   return unref(collect.value.isDragging) ? 0.4 : 1

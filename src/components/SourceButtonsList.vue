@@ -21,7 +21,7 @@ const props = defineProps({
   syllables: Array,
 })
 
-const handleCustomEvent = () => emit('dropOnSourceEvent')
+const handleCustomEvent = (arg) => emit('dropOnSourceEvent', arg)
 
 const emit = defineEmits(['dropOnSourceEvent'])
 </script>

@@ -6,6 +6,7 @@
     <q-btn
       @click="clicked"
       class="full-width full-height"
+      :class="item.matched ? 'bg-secondary' : ''"
     >
       <div>
         <span class="text-h3">{{ item.syllable }}</span>

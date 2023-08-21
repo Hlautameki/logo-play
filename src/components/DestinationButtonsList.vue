@@ -15,10 +15,6 @@
 
 <script setup>
 import DestinationButton from 'components/DestinationButton.vue'
-import { onMounted } from 'vue'
+
 const { syllables } = defineProps(['syllables'])
-console.log(`ModelValue: ${syllables}`)
-onMounted(() => {
-  console.log('modelValue in child component:', syllables)
-})
 </script>

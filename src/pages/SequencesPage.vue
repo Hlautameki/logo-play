@@ -28,9 +28,11 @@ const route = useRoute()
 const consonant = route.params.consonant
 const { getSyllablesWithPath } = useSyllablesWithPathBuilder()
 const syllables = ref(getSyllablesWithPath(consonant))
-const handleDropOnSourceEvent = () => {
-  console.log('Custom event received in ParentA')
+const handleDropOnSourceEvent = (arg) => {
+  syllables.value.forEach((syll) => {
+    if (syll.syllable === arg) {
+      syll.matched = true
+    }
+  })
 }
-
-// defineEmits(['customEvent'])
 </script>
