@@ -6,7 +6,7 @@
     <div class="col column justify-between">
       <destination-buttons-list
         class="col-6 col-md-2 col-sm-4"
-        v-model="syllables"
+        v-model:syllables="syllables"
       />
       <source-buttons-list
         class="col-6 col-md-2 col-sm-4"
