@@ -5,19 +5,23 @@
       v-for="item in syllables"
       v-bind:key="item.syllable"
     >
-      <slot
-        name="button-slot"
+      <source-button
         class="col-12"
         :item="item"
-        :customClass="'col-12'"
-      >
-      </slot>
+        @childDropOnSourceEvent="handleCustomEvent"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
+import SourceButton from 'components/SourceButton.vue'
+import { defineEmits } from 'vue'
 const props = defineProps({
   syllables: Array,
 })
+
+const handleCustomEvent = (arg) => emit('dropOnSourceEvent', arg)
+
+const emit = defineEmits(['dropOnSourceEvent'])
 </script>

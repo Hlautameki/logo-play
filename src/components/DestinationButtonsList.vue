@@ -2,22 +2,19 @@
   <div class="row q-col-gutter-md">
     <div
       class="col-6 col-md-2 col-sm-4 row items-stretch"
-      v-for="item in syllables"
-      v-bind:key="item.syllable"
+      v-for="(item, index) in syllables"
+      v-bind:key="index"
     >
-      <slot
-        name="button-slot"
+      <destination-button
         class="col-12"
         :item="item"
-        :customClass="'col-12'"
-      >
-      </slot>
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-const props = defineProps({
-  syllables: Array,
-})
+import DestinationButton from 'components/DestinationButton.vue'
+
+const { syllables } = defineProps(['syllables'])
 </script>
