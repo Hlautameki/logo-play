@@ -1,5 +1,8 @@
 <template>
-  <DndProvider :backend="backend">
+  <DndProvider
+    :backend="backend"
+    :options="options"
+  >
     <q-layout view="lHh Lpr lFf">
       <q-header elevated>
         <q-toolbar>
@@ -30,4 +33,9 @@ import { useQuasar } from 'quasar'
 
 const $q = useQuasar()
 const backend = $q.platform.is.mobile ? TouchBackend : HTML5Backend
+
+const options = {
+  enableTouchEvents: true,
+  enableMouseEvents: true,
+}
 </script>
