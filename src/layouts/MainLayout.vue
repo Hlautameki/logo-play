@@ -1,5 +1,5 @@
 <template>
-  <DndProvider :backend="HTML5Backend">
+  <DndProvider :backend="backend">
     <q-layout view="lHh Lpr lFf">
       <q-header elevated>
         <q-toolbar>
@@ -22,17 +22,12 @@
   </DndProvider>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { TouchBackend } from 'react-dnd-touch-backend'
 import { DndProvider } from 'vue3-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-export default defineComponent({
-  name: 'MainLayout',
+import { useQuasar } from 'quasar'
 
-  components: { DndProvider },
-
-  setup() {
-    return { HTML5Backend }
-  },
-})
+const $q = useQuasar()
+const backend = $q.platform.is.mobile ? TouchBackend : HTML5Backend
 </script>
