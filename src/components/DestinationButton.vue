@@ -1,7 +1,8 @@
 <template>
   <div
     :ref="drop"
-    :style="{ ...style, backgroundColor }"
+    :style="{ ...style }"
+    :class="isActive ? 'bg-accent' : collect.canDrop ? 'bg-info' : ''"
   >
     <q-btn
       @click="clicked"
@@ -43,12 +44,5 @@ const [collect, drop] = useDrop(() => ({
 
 const isActive = computed(
   () => unref(collect.value.canDrop) && unref(collect.value.isOver)
-)
-const backgroundColor = computed(() =>
-  unref(isActive)
-    ? 'darkgreen'
-    : unref(collect.value.canDrop)
-    ? 'darkkhaki'
-    : ''
 )
 </script>
