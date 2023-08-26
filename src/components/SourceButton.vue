@@ -19,9 +19,10 @@
 <script setup>
 import { useSoundPlayer } from '../reusable/soundPlayer'
 import { useDrag } from 'vue3-dnd'
-import { computed, defineEmits, unref } from 'vue'
+import { computed, defineEmits, onMounted, unref } from 'vue'
+import { getEmptyImage } from 'react-dnd-html5-backend'
 
-const { playSound } = useSoundPlayer(props.item.path)
+const { playSound } = useSoundPlayer(props.item?.path)
 
 const props = defineProps({
   item: Object,
@@ -35,7 +36,7 @@ const style = {
   cursor: 'move',
 }
 
-const [collect, drag] = useDrag(() => ({
+const [collect, drag, preview] = useDrag(() => ({
   type: 'syllable',
   item: () => ({
     name: props.item.syllable,
@@ -57,11 +58,13 @@ const [collect, drag] = useDrag(() => ({
     return !matched
   },
 }))
-
+onMounted(() => {
+  preview(getEmptyImage(), { captureDraggingState: true })
+})
 let matched = false
 
 const opacity = computed(() => {
-  return unref(collect.value.isDragging) ? 0.4 : 1
+  return unref(collect.value.isDragging) ? 0 : 1
 })
 
 const emit = defineEmits(['childDropOnSourceEvent'])

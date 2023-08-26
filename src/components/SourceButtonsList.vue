@@ -10,6 +10,7 @@
         :item="item"
         @childDropOnSourceEvent="handleCustomEvent"
       />
+      <CustomDragLayer></CustomDragLayer>
     </div>
   </div>
 </template>
@@ -17,6 +18,7 @@
 <script setup>
 import SourceButton from 'components/SourceButton.vue'
 import { defineEmits } from 'vue'
+import CustomDragLayer from 'components/CustomDragLayer.vue'
 const props = defineProps({
   syllables: Array,
 })
