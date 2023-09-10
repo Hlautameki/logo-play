@@ -3,6 +3,7 @@
     style="display: flex"
     class="row q-col-gutter-md"
     orientation="horizontal"
+    :drag-begin-delay="200"
   >
     <draggable
       style="display: flex; height: auto"
