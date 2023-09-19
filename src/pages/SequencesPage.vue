@@ -10,7 +10,7 @@
       />
       <source-buttons-list
         class="col-6 col-md-2 col-sm-4"
-        :syllables="sourceSyllables"
+        :syllablesProp="sourceSyllables"
         @dropOnSourceEvent="handleDropOnSourceEvent"
       />
     </div>
