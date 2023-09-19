@@ -8,6 +8,8 @@
     @drop="onDrop"
     @drop-ready="onDropReady"
     @drop-not-allowed="dropNotAllowed"
+    @drag-enter="onDragEnter"
+    group-name="1"
   >
     <draggable
       style="display: flex; height: auto"
@@ -51,6 +53,10 @@ const onDropReady = (dropResult) => {
 
 const dropNotAllowed = ({ payload, container }) => {
   console.log('drop not allowed')
+}
+
+const onDragEnter = () => {
+  console.log(`onDragEnter`)
 }
 
 const getChildPayload = (index) => {
