@@ -38,11 +38,7 @@ let syllables = ref(props.syllablesProp)
 const onDrop = (dropResult) => {
   console.log('drop result ', dropResult)
   // You can access and modify reactive data here
-  console.log(`before apply drag:`)
-  console.log(syllables.value)
   syllables.value = applyDrag(syllables.value, dropResult)
-  console.log(`after apply drag: ${syllables.value}`)
-  console.log(syllables.value)
 }
 
 const getGhostParent = () => {
