@@ -6,6 +6,7 @@
     @drag-enter="onDragEnter"
     group-name="1"
     :should-animate-drop="shouldAnimateDrop"
+    :behaviour="behaviour"
   >
     <draggable
       class="col-6 col-md-2 col-sm-4 row items-stretch"
@@ -31,7 +32,7 @@ const { syllables } = defineProps(['syllables'])
 const onDragEnter = () => {
   console.log(`onDragEnter`)
 }
-
+let behaviour = 'drop-zone'
 const shouldAnimateDrop = (sourceContainerOptions, payload) => {
   return false
 }
