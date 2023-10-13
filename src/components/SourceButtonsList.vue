@@ -10,12 +10,18 @@
     @drop-not-allowed="dropNotAllowed"
     @drag-enter="onDragEnter"
     group-name="1"
+    @drag-start="onDragStart"
+    @drag-leave="onDragLeave"
+    drag-class="bg-grey"
+    drop-class="bg-yellow"
+    :should-accept-drop="(src, payload) => getShouldAcceptDrop(1, src, payload)"
   >
     <draggable
       style="display: flex; height: auto"
       class="col-6 col-md-2 col-sm-4 row items-stretch"
       v-for="item in syllables"
       v-bind:key="item.syllable"
+      :drag-not-allowed="false"
     >
       <source-button
         class="col-12"
@@ -37,9 +43,17 @@ const props = defineProps({
 
 let syllables = ref(props.syllablesProp)
 
+const getShouldAcceptDrop = (index, sourceContainerOptions, payload) => {
+  // this.log("should-accept-drop", sourceContainerOptions, payload);
+  // return this.flags[index].drop;
+  console.log('should-accept-drop')
+  return true
+}
+
 const onDrop = (dropResult) => {
-  console.log('drop result ', dropResult)
+  // console.log('drop result ', dropResult)
   // You can access and modify reactive data here
+  console.log(dropResult)
   syllables.value = applyDrag(syllables.value, dropResult)
 }
 
@@ -53,10 +67,21 @@ const onDropReady = (dropResult) => {
 
 const dropNotAllowed = ({ payload, container }) => {
   console.log('drop not allowed')
+  return false
 }
 
 const onDragEnter = () => {
   console.log(`onDragEnter`)
+}
+
+const onDragLeave = () => {
+  console.log(`onDragLeave`)
+}
+
+const onDragStart = (dragResult) => {
+  console.log('onDragStart')
+  const { isSource, payload, willAcceptDrop } = dragResult
+  console.log(payload)
 }
 
 const getChildPayload = (index) => {
