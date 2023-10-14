@@ -16,7 +16,6 @@
       @click="clicked"
       class="full-width full-height"
       :class="item.matched ? 'bg-secondary' : ''"
-      :color="btnColor"
     >
       <div>
         <span class="text-h3">{{ item.syllable }}</span>
@@ -53,9 +52,9 @@ const getShouldAcceptDrop = (index, sourceContainerOptions, payload) => {
   // console.log(payload.syllable)
   if (payload.syllable == props.item.syllable) {
     console.log('return false')
-    return false
+    return true
   }
-  return true
+  return false
 }
 
 // const getShouldAcceptDrop = (a, b) => {

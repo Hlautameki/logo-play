@@ -12,8 +12,6 @@
     group-name="1"
     @drag-start="onDragStart"
     @drag-leave="onDragLeave"
-    drag-class="bg-grey"
-    drop-class="bg-yellow"
     :should-accept-drop="(src, payload) => getShouldAcceptDrop(1, src, payload)"
   >
     <draggable
