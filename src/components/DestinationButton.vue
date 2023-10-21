@@ -1,5 +1,6 @@
 <template>
   <container
+    :class="buttonClass"
     style="display: flex"
     :style="{ ...style }"
     orientation="horizontal"
@@ -34,6 +35,10 @@ let behaviour = 'drop-zone'
 
 const props = defineProps({
   item: Object,
+  buttonClass: {
+    type: String,
+    default: '',
+  },
 })
 
 function clicked() {
