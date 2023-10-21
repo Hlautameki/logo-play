@@ -17,6 +17,7 @@
       @click="clicked"
       class="full-width full-height"
       :class="item.matched ? 'bg-secondary' : ''"
+      :color="btnColor"
     >
       <div>
         <span class="text-h3">{{ item.syllable }}</span>
@@ -45,27 +46,15 @@ function clicked() {
   playSound()
 }
 
-// const onShouldAcceptDrop = (src, payload) => {
-//   console.log('onShouldAcceptDrop')
-//   return false
-// }
-
 const getShouldAcceptDrop = (index, sourceContainerOptions, payload) => {
   console.log('should-accept-drop', sourceContainerOptions, payload)
-  // return this.flags[index].drop;
   console.log('getShouldAcceptDrop Destination')
-  // console.log(payload.syllable)
   if (payload.syllable == props.item.syllable) {
     console.log('return false')
     return true
   }
   return false
 }
-
-// const getShouldAcceptDrop = (a, b) => {
-//   console.log('getShouldAcceptDrop')
-//   return false
-// }
 
 const style = {}
 const shouldAnimateDrop = (sourceContainerOptions, payload) => {
@@ -74,20 +63,11 @@ const shouldAnimateDrop = (sourceContainerOptions, payload) => {
   return false
 }
 
-// const [collect, drop] = useDrop(() => ({
-//   accept: 'syllable',
-//   drop: () => ({ name: 'Dustbin2', testProp: props.item.syllable }),
-//   collect: (monitor) => ({
-//     isOver: monitor.isOver(),
-//     canDrop: monitor.canDrop(),
-//   }),
-// }))
 const dragOver = ref(false)
 
 const onDragEnter = () => {
   console.log(`onDragEnter - DestinationButton`)
   dragOver.value = true
-  btnColor.value = 'pink'
 }
 const dropNotAllowed = ({ payload, container }) => {
   console.log('Drop Not Allowed')
@@ -100,17 +80,13 @@ const onDrop = (dropResult) => {
   const { removedIndex, addedIndex, payload, element } = dropResult
   console.log(payload)
   console.log(props.item.syllable)
-  btnColor.value = 'red'
+  btnColor.value = 'green'
 }
 
 const dragLeave = () => {
   console.log('Drag Leave - DestinationButton')
   dragOver.value = false
-  btnColor.value = 'green'
 }
 
-const btnColor = ref('green')
-// const isActive = computed(
-//   () => unref(collect.value.canDrop) && unref(collect.value.isOver)
-// )
+const btnColor = ref()
 </script>
