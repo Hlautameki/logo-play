@@ -42,16 +42,10 @@ const props = defineProps({
 let syllables = ref(props.syllablesProp)
 
 const getShouldAcceptDrop = (index, sourceContainerOptions, payload) => {
-  // this.log("should-accept-drop", sourceContainerOptions, payload);
-  // return this.flags[index].drop;
-  console.log('should-accept-drop')
   return true
 }
 
 const onDrop = (dropResult) => {
-  // console.log('drop result ', dropResult)
-  // You can access and modify reactive data here
-  console.log(dropResult)
   syllables.value = applyDrag(syllables.value, dropResult)
 }
 
@@ -59,27 +53,18 @@ const getGhostParent = () => {
   return document.body
 }
 
-const onDropReady = (dropResult) => {
-  console.log('drop ready', dropResult)
-}
+const onDropReady = (dropResult) => {}
 
 const dropNotAllowed = ({ payload, container }) => {
-  console.log('drop not allowed')
   return false
 }
 
-const onDragEnter = () => {
-  console.log(`onDragEnter`)
-}
+const onDragEnter = () => {}
 
-const onDragLeave = () => {
-  console.log(`onDragLeave`)
-}
+const onDragLeave = () => {}
 
 const onDragStart = (dragResult) => {
-  console.log('onDragStart')
   const { isSource, payload, willAcceptDrop } = dragResult
-  console.log(payload)
 }
 
 const getChildPayload = (index) => {

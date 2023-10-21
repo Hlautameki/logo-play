@@ -28,7 +28,7 @@
 
 <script setup>
 import { useSoundPlayer } from '../reusable/soundPlayer'
-import { computed, ref, unref } from 'vue'
+import { ref } from 'vue'
 import { Container } from 'vue-dndrop'
 
 const { playSound } = useSoundPlayer(props.item.path)
@@ -47,44 +47,29 @@ function clicked() {
 }
 
 const getShouldAcceptDrop = (index, sourceContainerOptions, payload) => {
-  console.log('should-accept-drop', sourceContainerOptions, payload)
-  console.log('getShouldAcceptDrop Destination')
-  if (payload.syllable == props.item.syllable) {
-    console.log('return false')
-    return true
-  }
-  return false
+  return payload.syllable == props.item.syllable
 }
 
 const style = {}
 const shouldAnimateDrop = (sourceContainerOptions, payload) => {
-  console.log('shouldAnimateDrop')
-  console.log(payload)
   return false
 }
 
 const dragOver = ref(false)
 
 const onDragEnter = () => {
-  console.log(`onDragEnter - DestinationButton`)
   dragOver.value = true
 }
 const dropNotAllowed = ({ payload, container }) => {
-  console.log('Drop Not Allowed')
-  console.log(payload)
   return true
 }
 
 const onDrop = (dropResult) => {
-  console.log('onDrop - DestinationButton')
   const { removedIndex, addedIndex, payload, element } = dropResult
-  console.log(payload)
-  console.log(props.item.syllable)
   btnColor.value = 'green'
 }
 
 const dragLeave = () => {
-  console.log('Drag Leave - DestinationButton')
   dragOver.value = false
 }
 
