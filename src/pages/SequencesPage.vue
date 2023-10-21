@@ -27,11 +27,9 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { useSyllablesWithPathBuilder } from 'src/reusable/syllablesWithPathBuilder'
-import DestinationButtonsList from 'components/DestinationButtonsList.vue'
 import SourceButtonsList from 'components/SourceButtonsList.vue'
 import { ref } from 'vue'
 import ButtonsList from 'components/ButtonsList.vue'
-import PlayButton from 'components/PlayButton.vue'
 import DestinationButton from 'components/DestinationButton.vue'
 
 const route = useRoute()
