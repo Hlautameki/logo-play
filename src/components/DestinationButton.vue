@@ -66,7 +66,9 @@ const dropNotAllowed = ({ payload, container }) => {
 
 const onDrop = (dropResult) => {
   const { removedIndex, addedIndex, payload, element } = dropResult
-  btnColor.value = 'green'
+  if (dragOver.value) {
+    btnColor.value = 'green'
+  }
 }
 
 const dragLeave = () => {
