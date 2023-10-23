@@ -4,13 +4,20 @@
     class="row items-stretch"
   >
     <div class="col column justify-between">
-      <destination-buttons-list
+      <buttons-list
         class="col-6 col-md-2 col-sm-4"
-        v-model:syllables="syllables"
-      />
+        :syllables="syllables"
+      >
+        <template v-slot:button-slot="{ item, customClass }">
+          <destination-button
+            :item="item"
+            :button-class="customClass"
+          />
+        </template>
+      </buttons-list>
       <source-buttons-list
         class="col-6 col-md-2 col-sm-4"
-        :syllables="sourceSyllables"
+        :syllablesProp="sourceSyllables"
         @dropOnSourceEvent="handleDropOnSourceEvent"
       />
     </div>
@@ -20,9 +27,10 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { useSyllablesWithPathBuilder } from 'src/reusable/syllablesWithPathBuilder'
-import DestinationButtonsList from 'components/DestinationButtonsList.vue'
 import SourceButtonsList from 'components/SourceButtonsList.vue'
 import { ref } from 'vue'
+import ButtonsList from 'components/ButtonsList.vue'
+import DestinationButton from 'components/DestinationButton.vue'
 
 const route = useRoute()
 const consonant = route.params.consonant

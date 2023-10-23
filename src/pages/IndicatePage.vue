@@ -7,7 +7,14 @@
       <buttons-list
         class="col-6 col-md-2 col-sm-4"
         :syllables="syllables"
-      />
+      >
+        <template v-slot:button-slot="{ item, customClass }">
+          <play-button
+            :item="item"
+            :button-class="customClass"
+          />
+        </template>
+      </buttons-list>
       <div class="col-2 row q-gutter-md justify-center">
         <q-btn
           class="col-6 col-md-2 col-sm-4"
@@ -28,6 +35,7 @@ import ButtonsList from 'components/ButtonsList.vue'
 import { useRoute } from 'vue-router'
 import { useSyllablesWithPathBuilder } from 'src/reusable/syllablesWithPathBuilder'
 import { useSoundPlayer } from '../reusable/soundPlayer'
+import PlayButton from 'components/PlayButton.vue'
 
 const { getSyllablesWithPath } = useSyllablesWithPathBuilder()
 

@@ -1,13 +1,11 @@
 <template>
   <div
     class="box"
-    :ref="drag"
-    :style="{ ...style, opacity }"
+    :style="{ ...style }"
   >
     <q-btn
       @click="clicked"
       class="full-width full-height"
-      :class="matched ? 'bg-secondary' : ''"
     >
       <div>
         <span class="text-h3">{{ item.syllable }}</span>
@@ -18,7 +16,6 @@
 
 <script setup>
 import { useSoundPlayer } from '../reusable/soundPlayer'
-import { useDrag } from 'vue3-dnd'
 import { computed, defineEmits, unref } from 'vue'
 
 const { playSound } = useSoundPlayer(props.item.path)
@@ -35,34 +32,7 @@ const style = {
   cursor: 'move',
 }
 
-const [collect, drag] = useDrag(() => ({
-  type: 'syllable',
-  item: () => ({
-    name: props.item.syllable,
-  }),
-  end: (draggedItem, monitor) => {
-    const dropResult = monitor.getDropResult()
-    if (draggedItem && dropResult) {
-      if (dropResult.testProp === draggedItem.name) {
-        matched = true
-        emit('childDropOnSourceEvent', dropResult.testProp)
-      }
-    }
-  },
-  collect: (monitor) => ({
-    isDragging: monitor.isDragging(),
-    handlerId: monitor.getHandlerId(),
-  }),
-  canDrag: (monitor) => {
-    return !matched
-  },
-}))
-
-let matched = false
-
-const opacity = computed(() => {
-  return unref(collect.value.isDragging) ? 0.4 : 1
-})
+// emit('childDropOnSourceEvent', dropResult.testProp)
 
 const emit = defineEmits(['childDropOnSourceEvent'])
 </script>
