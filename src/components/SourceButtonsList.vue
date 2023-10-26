@@ -13,6 +13,7 @@
     @drag-start="onDragStart"
     @drag-leave="onDragLeave"
     :should-accept-drop="(src, payload) => getShouldAcceptDrop(1, src, payload)"
+    :drag-begin-delay="0"
   >
     <draggable
       style="display: flex; height: auto"
