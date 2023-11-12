@@ -22,10 +22,17 @@
       v-bind:key="item.syllable"
       :drag-not-allowed="false"
     >
-      <source-button
+      <div
         class="col-12"
-        :item="item"
-      />
+        style="
+          color: #31ccec;
+          justify-content: center;
+          display: flex;
+          align-items: center;
+        "
+      >
+        <p style="font-size: 40px">{{ item.syllable }}</p>
+      </div>
     </draggable>
   </container>
 </template>
