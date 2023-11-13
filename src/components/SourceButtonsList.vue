@@ -2,6 +2,7 @@
   <container
     style="display: flex"
     class="row q-col-gutter-md"
+    orientation="horizontal"
     :get-ghost-parent="getGhostParent"
     :get-child-payload="getChildPayload"
     @drop="onDrop"
@@ -17,11 +18,13 @@
     <draggable
       style="display: flex; height: auto"
       class="col-6 col-md-2 col-sm-4 row items-stretch"
+      v-for="item in syllables"
+      v-bind:key="item.syllable"
       :drag-not-allowed="false"
     >
       <source-button
         class="col-12"
-        :item="syllables[0]"
+        :item="item"
       />
     </draggable>
   </container>
