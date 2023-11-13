@@ -2,6 +2,7 @@
   <q-page
     padding
     class="row items-stretch"
+    style="touch-action: none"
   >
     <div class="col column justify-between">
       <buttons-list
