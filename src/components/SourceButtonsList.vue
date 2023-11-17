@@ -1,6 +1,6 @@
 <template>
   <container
-    style="display: flex"
+    style="display: flex; touch-action: none"
     class="row q-col-gutter-md"
     orientation="horizontal"
     :get-ghost-parent="getGhostParent"
