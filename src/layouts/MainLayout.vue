@@ -1,17 +1,17 @@
 <template>
   <DndProvider :backend="backend">
     <q-layout view="lHh Lpr lFf">
-      <q-header elevated>
+      <q-header
+        elevated
+        class="bg-pink-12"
+      >
         <q-toolbar>
-          <q-toolbar-title>
-            <q-btn
-              flat
-              label="Logo Play"
-              to="/"
+          <q-toolbar-title class="row justify-center">
+            <q-img
+              src="icons/syl.svg"
+              style="width: 200px"
             />
           </q-toolbar-title>
-
-          <div>Quasar v{{ $q.version }}</div>
         </q-toolbar>
       </q-header>
 
