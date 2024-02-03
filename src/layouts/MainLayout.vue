@@ -7,10 +7,15 @@
       >
         <q-toolbar>
           <q-toolbar-title class="row justify-center">
-            <q-img
-              src="icons/syl.svg"
-              style="width: 200px"
-            />
+            <q-btn
+              flat
+              to="/"
+            >
+              <q-img
+                src="icons/syl.svg"
+                style="width: 200px"
+              />
+            </q-btn>
           </q-toolbar-title>
         </q-toolbar>
       </q-header>
