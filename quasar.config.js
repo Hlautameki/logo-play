@@ -144,8 +144,8 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `logo-play app`,
-        short_name: `logo-play app`,
+        name: `Sylabki`,
+        short_name: `Sylabki`,
         description: `Speaking learning application`,
         display: 'standalone',
         orientation: 'portrait',
