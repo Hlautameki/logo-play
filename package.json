@@ -1,8 +1,8 @@
 {
-  "name": "logo-play",
+  "name": "Sylabki",
   "version": "0.0.1",
   "description": "Speaking learning application",
-  "productName": "logo-play app",
+  "productName": "Sylabki",
   "author": "mateuszmistecki <mateusz.mistecki@gmail.com>",
   "private": true,
   "scripts": {
