@@ -57,7 +57,6 @@ const getShouldAcceptDrop = (index, sourceContainerOptions, payload) => {
 
 const onDrop = (dropResult) => {
   syllables.value = applyDrag(syllables.value, dropResult)
-  emit('changeMediaQueries', syllables.value?.length)
 
   if (syllables.value?.length < 5) {
     classObject['col-xs-6'] = false
