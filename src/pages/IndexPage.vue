@@ -6,13 +6,15 @@
     >
       <q-btn
         style="aspect-ratio: 1; min-width: 202px"
-        class="col"
+        class="col q-pa-none"
         to="listen"
-        label="Słuchaj"
         color="primary"
-        icon="volume_down"
         size="lg"
-      />
+      >
+        <q-img src="../assets/categories/listening.jpg">
+          <div class="absolute-bottom text-subtitle text-center">Słuchaj</div>
+        </q-img>
+      </q-btn>
     </div>
     <div
       :class="classArray"
@@ -20,13 +22,17 @@
     >
       <q-btn
         style="aspect-ratio: 1; min-width: 202px"
-        class="col"
+        class="col q-pa-none"
         to="Indicate"
-        label="Wskaż"
         color="primary"
         size="lg"
-        icon="touch_app"
-      />
+      >
+        <q-img src="../assets/categories/answering.jpg">
+          <div class="absolute-bottom text-subtitle text-center">
+            Odpowiadaj
+          </div>
+        </q-img></q-btn
+      >
     </div>
     <div
       :class="classArray"
@@ -34,21 +40,19 @@
     >
       <q-btn
         style="aspect-ratio: 1; min-width: 202px"
-        class="col"
+        class="col q-pa-none"
         to="Sequences"
-        label="Sekwencje"
         color="primary"
         size="lg"
-        icon="swipe_right_alt"
-      />
+      >
+        <q-img src="../assets/categories/drag-and-drop.jpg">
+          <div class="absolute-bottom text-subtitle text-center">Przesuwaj</div>
+        </q-img>
+      </q-btn>
     </div>
   </q-page>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
-
 const classArray = ['col-xs-12', 'col-sm-4', 'col-md-2', 'col-lg-2', 'col-xl-2']
-const btnRef = ref(null)
-const btnHeight = computed(() => 300)
 </script>
