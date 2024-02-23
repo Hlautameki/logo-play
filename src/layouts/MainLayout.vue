@@ -20,7 +20,9 @@
         </q-toolbar>
       </q-header>
 
-      <q-page-container>
+      <q-page-container
+        style="background-image: url(backgrounds/cute-cartoon-unicorn.jpg)"
+      >
         <router-view />
       </q-page-container>
     </q-layout>
