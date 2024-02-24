@@ -1,15 +1,13 @@
 <template>
   <DndProvider :backend="backend">
     <q-layout view="lHh Lpr lFf">
-      <q-header
-        elevated
-        class="bg-pink-12"
-      >
+      <q-header class="bg-transparent">
         <q-toolbar>
-          <q-toolbar-title class="row justify-center">
+          <q-toolbar-title class="q-pt-sm">
             <q-btn
               flat
               to="/"
+              class="q-pl-none"
             >
               <q-img
                 src="icons/syl.svg"
