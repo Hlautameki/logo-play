@@ -2,18 +2,19 @@
   <DndProvider :backend="backend">
     <q-layout view="lHh Lpr lFf">
       <q-header
-        elevated
-        class="bg-pink-12"
+        :elevated="$q.screen.lt.md"
+        class="bg-transparent"
       >
         <q-toolbar>
-          <q-toolbar-title class="row justify-center">
+          <q-toolbar-title class="q-pt-sm">
             <q-btn
               flat
               to="/"
+              class="q-pl-none"
             >
               <q-img
                 src="icons/syl.svg"
-                style="width: 200px"
+                width="200px"
               />
             </q-btn>
           </q-toolbar-title>
