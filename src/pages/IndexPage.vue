@@ -54,5 +54,5 @@
 </template>
 
 <script setup>
-const classArray = ['col-xs-12', 'col-sm-4', 'col-md-2', 'col-lg-2', 'col-xl-2']
+const classArray = ['col-xs-12', 'col-sm-4', 'col-md-3', 'col-lg-2', 'col-xl-2']
 </script>
