@@ -1,7 +1,10 @@
 <template>
   <DndProvider :backend="backend">
     <q-layout view="lHh Lpr lFf">
-      <q-header class="bg-transparent">
+      <q-header
+        :elevated="$q.screen.lt.md"
+        class="bg-transparent"
+      >
         <q-toolbar>
           <q-toolbar-title class="q-pt-sm">
             <q-btn
