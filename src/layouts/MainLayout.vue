@@ -13,7 +13,7 @@
             >
               <q-img
                 src="icons/syl.svg"
-                style="width: 200px"
+                width="200px"
               />
             </q-btn>
           </q-toolbar-title>
